@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, lazy } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Header, Navigation } from './AppStyled';

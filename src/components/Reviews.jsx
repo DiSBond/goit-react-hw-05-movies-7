@@ -13,7 +13,7 @@ const Reviews = ({ apiKey }) => {
       .then(response => response.json())
       .catch(error => console.log(error))
       .then(result => setReviews(result.results));
-  }, []);
+  }, [apiKey, id]);
 
   return (
     <div>

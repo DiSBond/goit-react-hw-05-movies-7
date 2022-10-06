@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import propTypes from 'prop-types';
 
 const Cast = ({ apiKey }) => {
   const [cast, setCast] = useState([]);
   const { id } = useParams();
-  const location = useLocation();
 
   useEffect(() => {
     fetch(
@@ -14,7 +13,7 @@ const Cast = ({ apiKey }) => {
       .then(response => response.json())
       .catch(error => console.log(error))
       .then(result => setCast(result.cast));
-  }, []);
+  }, [id, apiKey]);
 
   return (
     <div>

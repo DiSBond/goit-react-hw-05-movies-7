@@ -16,6 +16,8 @@ const MovieDetails = ({ apiKey }) => {
   const [movieDetails, setMovieDetails] = useState({});
   const location = useLocation();
 
+  const { id } = useParams();
+
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
@@ -23,9 +25,7 @@ const MovieDetails = ({ apiKey }) => {
       .then(response => response.json())
       .catch(error => console.log(error))
       .then(result => setMovieDetails(result));
-  }, []);
-
-  const { id } = useParams();
+  }, [apiKey, id]);
 
   const poster_path = () => {
     if (movieDetails.poster_path) {

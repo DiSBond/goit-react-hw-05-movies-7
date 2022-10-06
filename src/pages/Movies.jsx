@@ -20,12 +20,6 @@ const Movie = ({ apiKey }) => {
     }
   `;
 
-  useEffect(() => {
-    if (search !== '') {
-      onSubmit(search);
-    }
-  }, []);
-
   const onSubmit = searchMovie => {
     fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false&query=${search}`
@@ -34,6 +28,12 @@ const Movie = ({ apiKey }) => {
       .catch(error => console.log(error))
       .then(result => setSearchResult(result.results));
   };
+
+  useEffect(() => {
+    if (search !== '') {
+      onSubmit(search);
+    }
+  });
 
   const searchSubmit = event => {
     event.preventDefault();
